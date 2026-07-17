@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link rel="stylesheet" href="style.css?v=11" />
 </head>
 <body>
   <main class="room" aria-label="햇살 드는 창가의 조용한 방">
@@ -20,24 +20,21 @@
     </header>
 
     <section class="window-stage" aria-label="밝은 햇살이 비치는 창문">
+      <img class="sun-asset" src="assets/vendor/openmoji/sun.svg" alt="햇살" />
       <img class="window-asset" src="assets/vendor/openmoji/window.svg" alt="창문" />
       <img class="curtains-asset" src="assets/vendor/material-icons/curtains.svg" alt="커튼" />
-      <img class="sun-asset" src="assets/vendor/openmoji/sun.svg" alt="햇살" />
       <img class="cloud-asset cloud-one" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
       <img class="cloud-asset cloud-two" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
       <img class="bird-asset bird-one" src="assets/vendor/openmoji/bird.svg" alt="새" />
       <img class="bird-asset bird-two" src="assets/vendor/openmoji/bird.svg" alt="새" />
     </section>
 
-    <section class="desk-stage" aria-label="책상">
+    <section class="desk-stage" aria-label="책상 위 마음 노트">
       <img class="desk-asset" src="assets/vendor/material-icons/desk.svg" alt="책상" />
       <img class="plant-asset" src="assets/vendor/openmoji/plant.svg" alt="화분" />
 
-      <button class="mug-button" id="soundBtn" aria-pressed="false" title="빗소리 켜기">
-        <img src="assets/vendor/openmoji/mug.svg" alt="따뜻한 차" />
-      </button>
-
       <div class="notebook-wrap">
+        <img class="notebook-asset" src="assets/vendor/openmoji/notebook.svg" alt="노트" />
         <div class="notebook">
           <label for="thought">지금 마음에 걸리는 생각을 내려놓아 보세요.</label>
           <textarea id="thought" maxlength="240" placeholder="누구에게도 보여주지 않아도 돼요…"></textarea>
@@ -48,6 +45,10 @@
         </div>
         <img class="pen-asset" src="assets/vendor/openmoji/pen.svg" alt="펜" />
       </div>
+
+      <button class="mug-button" id="soundBtn" aria-pressed="false" title="빗소리 켜기">
+        <img src="assets/vendor/openmoji/mug.svg" alt="따뜻한 차" />
+      </button>
 
       <button class="trash-button" id="trashBtn" aria-label="적은 생각을 쓰레기통에 버리기" title="생각 버리기">
         <img src="assets/vendor/openmoji/trash.svg" alt="쓰레기통" />
@@ -70,6 +71,6 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <canvas id="rainCanvas" aria-hidden="true"></canvas>
   </main>
-  <script src="app.js?v=10"></script>
+  <script src="app.js?v=11"></script>
 </body>
 </html>
