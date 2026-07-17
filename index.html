@@ -9,49 +9,48 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=9" />
-  <link rel="stylesheet" href="mobile.css?v=9" />
-  <link rel="stylesheet" href="scene-assets.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
   <main class="room" aria-label="햇살 드는 창가의 조용한 방">
-    <div class="sunbeam sunbeam-one"></div>
-    <div class="sunbeam sunbeam-two"></div>
-
     <header class="intro">
       <p id="greeting">오늘도 여기까지 잘 왔어요.</p>
       <h1>마음쉼</h1>
       <span>지금은 아무것도 해결하지 않아도 괜찮아요.</span>
     </header>
 
-    <section class="window" aria-label="창문">
-      <div class="sky">
-        <span class="cloud c1"></span><span class="cloud c2"></span>
-        <span class="bird bird-1" aria-hidden="true"></span>
-        <span class="bird bird-2" aria-hidden="true"></span>
-      </div>
-      <div class="frame-v"></div><div class="frame-h"></div>
-      <div class="curtain left"></div><div class="curtain right"></div>
+    <section class="window-stage" aria-label="밝은 햇살이 비치는 창문">
+      <img class="window-asset" src="assets/vendor/openmoji/window.svg" alt="창문" />
+      <img class="curtains-asset" src="assets/vendor/material-icons/curtains.svg" alt="커튼" />
+      <img class="sun-asset" src="assets/vendor/openmoji/sun.svg" alt="햇살" />
+      <img class="cloud-asset cloud-one" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
+      <img class="cloud-asset cloud-two" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
+      <img class="bird-asset bird-one" src="assets/vendor/openmoji/bird.svg" alt="새" />
+      <img class="bird-asset bird-two" src="assets/vendor/openmoji/bird.svg" alt="새" />
     </section>
 
-    <section class="desk" aria-label="책상">
-      <div class="plant" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
-      <button class="mug" id="soundBtn" aria-pressed="false" title="빗소리 켜기">
-        <span class="steam s1"></span><span class="steam s2"></span>☕
+    <section class="desk-stage" aria-label="책상">
+      <img class="desk-asset" src="assets/vendor/material-icons/desk.svg" alt="책상" />
+      <img class="plant-asset" src="assets/vendor/openmoji/plant.svg" alt="화분" />
+
+      <button class="mug-button" id="soundBtn" aria-pressed="false" title="빗소리 켜기">
+        <img src="assets/vendor/openmoji/mug.svg" alt="따뜻한 차" />
       </button>
 
       <div class="notebook-wrap">
         <div class="notebook">
-          <div class="rings" aria-hidden="true">○ ○ ○ ○ ○ ○</div>
           <label for="thought">지금 마음에 걸리는 생각을 내려놓아 보세요.</label>
           <textarea id="thought" maxlength="240" placeholder="누구에게도 보여주지 않아도 돼요…"></textarea>
-          <div class="note-footer"><span id="count">0 / 240</span><button id="foldBtn">접어서 내려놓기</button></div>
+          <div class="note-footer">
+            <span id="count">0 / 240</span>
+            <button id="foldBtn">접어서 내려놓기</button>
+          </div>
         </div>
-        <div class="pen" aria-hidden="true"><span></span></div>
+        <img class="pen-asset" src="assets/vendor/openmoji/pen.svg" alt="펜" />
       </div>
 
-      <button class="trash" id="trashBtn" aria-label="적은 생각을 쓰레기통에 버리기" title="생각 버리기">
-        <span class="lid"></span><span class="bin">▥</span>
+      <button class="trash-button" id="trashBtn" aria-label="적은 생각을 쓰레기통에 버리기" title="생각 버리기">
+        <img src="assets/vendor/openmoji/trash.svg" alt="쓰레기통" />
       </button>
     </section>
 
@@ -61,6 +60,8 @@
       <button id="clearBtn">모두 비우기</button>
     </nav>
 
+    <p class="asset-credit">그래픽: OpenMoji(CC BY-SA 4.0), Google Material Icons(Apache 2.0)</p>
+
     <section class="breathing" id="breathing" aria-live="polite" hidden>
       <div class="breath-circle"><span id="breathText">천천히 들이마셔요</span></div>
       <button id="stopBreath">그만하기</button>
@@ -69,6 +70,6 @@
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
     <canvas id="rainCanvas" aria-hidden="true"></canvas>
   </main>
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
 </body>
 </html>
