@@ -3,74 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#f5e8c9" />
-  <meta name="description" content="마음이 답답할 때 잠시 머물며 생각을 적고 비우는 작은 창가 공간" />
-  <title>마음쉼 — 생각을 잠시 내려놓는 곳</title>
+  <meta name="theme-color" content="#08090d" />
+  <meta name="description" content="버리고 싶은 마음과 기억하고 싶은 성공을 나누어 적는 두 권의 마음 노트" />
+  <title>마음쉼 — 버림노트와 성공노트</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=11" />
+  <link rel="stylesheet" href="style.css?v=12" />
 </head>
 <body>
-  <main class="room" aria-label="햇살 드는 창가의 조용한 방">
-    <header class="intro">
-      <p id="greeting">오늘도 여기까지 잘 왔어요.</p>
-      <h1>마음쉼</h1>
-      <span>지금은 아무것도 해결하지 않아도 괜찮아요.</span>
-    </header>
+  <main class="app-shell" aria-label="마음을 정리하는 두 권의 노트">
+    <p class="quiet-copy">오늘의 마음은 어디에 적을까요?</p>
 
-    <section class="window-stage" aria-label="밝은 햇살이 비치는 창문">
-      <img class="sun-asset" src="assets/vendor/openmoji/sun.svg" alt="햇살" />
-      <img class="window-asset" src="assets/vendor/openmoji/window.svg" alt="창문" />
-      <img class="curtains-asset" src="assets/vendor/material-icons/curtains.svg" alt="커튼" />
-      <img class="cloud-asset cloud-one" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
-      <img class="cloud-asset cloud-two" src="assets/vendor/openmoji/cloud.svg" alt="" aria-hidden="true" />
-      <img class="bird-asset bird-one" src="assets/vendor/openmoji/bird.svg" alt="새" />
-      <img class="bird-asset bird-two" src="assets/vendor/openmoji/bird.svg" alt="새" />
+    <section class="bookshelf" aria-label="노트 선택">
+      <button class="book-button discard-book" type="button" data-notebook="discard" aria-label="버림노트 열기">
+        <span class="book-visual">
+          <img src="assets/vendor/openmoji/red-book.svg" alt="" aria-hidden="true" />
+          <strong>버림노트</strong>
+        </span>
+        <span class="book-caption">적고 · 비우기</span>
+      </button>
+
+      <button class="book-button success-book" type="button" data-notebook="success" aria-label="성공노트 열기">
+        <span class="book-visual">
+          <img src="assets/vendor/openmoji/green-book.svg" alt="" aria-hidden="true" />
+          <strong>성공노트</strong>
+        </span>
+        <span class="book-caption">적고 · 기억하기</span>
+      </button>
     </section>
 
-    <section class="desk-stage" aria-label="책상 위 마음 노트">
-      <img class="desk-asset" src="assets/vendor/material-icons/desk.svg" alt="책상" />
-      <img class="plant-asset" src="assets/vendor/openmoji/plant.svg" alt="화분" />
+    <button class="trash-button" id="trashBtn" type="button" aria-label="버림노트 비우기">
+      <img src="assets/vendor/openmoji/trash.svg" alt="" aria-hidden="true" />
+      <span>휴지통</span>
+    </button>
+  </main>
 
-      <div class="notebook-wrap">
-        <img class="notebook-asset" src="assets/vendor/openmoji/notebook.svg" alt="노트" />
-        <div class="notebook">
-          <label for="thought">지금 마음에 걸리는 생각을 내려놓아 보세요.</label>
-          <textarea id="thought" maxlength="240" placeholder="누구에게도 보여주지 않아도 돼요…"></textarea>
-          <div class="note-footer">
-            <span id="count">0 / 240</span>
-            <button id="foldBtn">접어서 내려놓기</button>
-          </div>
-        </div>
-        <img class="pen-asset" src="assets/vendor/openmoji/pen.svg" alt="펜" />
+  <div class="editor-layer" id="editorLayer" hidden>
+    <section class="editor-card" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+      <button class="close-button" id="closeEditor" type="button" aria-label="노트 닫기">×</button>
+      <p class="editor-kicker" id="editorKicker"></p>
+      <h1 id="editorTitle"></h1>
+      <textarea id="noteInput" maxlength="500" placeholder="마음에 있는 말을 천천히 적어보세요."></textarea>
+      <div class="editor-actions">
+        <span id="noteCount">0 / 500</span>
+        <button id="primaryAction" type="button"></button>
       </div>
 
-      <button class="mug-button" id="soundBtn" aria-pressed="false" title="빗소리 켜기">
-        <img src="assets/vendor/openmoji/mug.svg" alt="따뜻한 차" />
-      </button>
-
-      <button class="trash-button" id="trashBtn" aria-label="적은 생각을 쓰레기통에 버리기" title="생각 버리기">
-        <img src="assets/vendor/openmoji/trash.svg" alt="쓰레기통" />
-      </button>
+      <section class="success-history" id="successHistory" hidden aria-label="저장된 성공 기록">
+        <h2>내가 해낸 일</h2>
+        <div id="successList"></div>
+      </section>
     </section>
+  </div>
 
-    <nav class="calm-tools" aria-label="마음 진정 도구">
-      <button id="breatheBtn">숨 한번 고르기</button>
-      <button id="promptBtn">한 문장 받기</button>
-      <button id="clearBtn">모두 비우기</button>
-    </nav>
-
-    <p class="asset-credit">그래픽: OpenMoji(CC BY-SA 4.0), Google Material Icons(Apache 2.0)</p>
-
-    <section class="breathing" id="breathing" aria-live="polite" hidden>
-      <div class="breath-circle"><span id="breathText">천천히 들이마셔요</span></div>
-      <button id="stopBreath">그만하기</button>
-    </section>
-
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <canvas id="rainCanvas" aria-hidden="true"></canvas>
-  </main>
-  <script src="app.js?v=11"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js?v=12"></script>
 </body>
 </html>
